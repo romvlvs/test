@@ -1,9 +1,9 @@
 language: node_js
 node_js:
   - "6"
-sudo: required
-addons:
-  firefox: "46.0.1"
+#sudo: required
+#addons:
+#  firefox: "46.0.1"
 #  apt:
 #    sources:
 #    - google-chrome
@@ -29,8 +29,8 @@ before_install:
 #- npm config set https-proxy http://proxy.wdf.sap.corp:8080
 - npm install -g bower
 - npm install -g web-component-tester
-- export PATH=$PWD/node_modules/.bin:$PATH
-- 'export DISPLAY=:99.0'
+#- export PATH=$PWD/node_modules/.bin:$PATH
+#- 'export DISPLAY=:99.0'
 #- tar -xjf /tmp/firefox-latest.tar.bz2 --directory /tmp
 #- export PATH=/tmp/firefox:$PATH
 #- sudo mkdir /usr/local/bin/firefoxhack
@@ -46,7 +46,7 @@ script:
 #- wct --skip-plugin sauce  --skip-selenium-install
 #- xvfb-run wct --skip-plugin sauce --skip-selenium-install
 - wct --skip-plugin local
-- wct -s 'default'
+#- wct -s 'default'
 after_success:
 #- if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]]; then sh .xs2deploy.sh $DEV_ENDPOINT dev; fi
 #- if [[ $TRAVIS_BRANCH =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$ ]]; then sh .xs2deploy.sh $STABLE_ENDPOINT stable; fi
