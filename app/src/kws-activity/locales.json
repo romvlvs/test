@@ -1,0 +1,17 @@
+{
+    "en": {
+        "ActivityIdTitle": "This is activity {id}.",
+        "ActivityNameTitle": "Actually, its title is {name}.",
+        "unknownTitle": "unknown"
+    },
+    "de": {
+        "ActivityIdTitle": "Dies ist Aktivität {id}.",
+        "ActivityNameTitle": "Eigentlich heißt diese Aktivität {name}.",
+        "unknownTitle": "unbekannt"
+    },
+    "by": {
+        "ActivityIdTitle": "Des is Aktivität {id}.",
+        "ActivityNameTitle": "De Aktivitäd hoasst {name}.",
+        "unknownTitle": "ned bekannt"
+    }
+}

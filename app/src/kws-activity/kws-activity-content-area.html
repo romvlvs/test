@@ -1,0 +1,51 @@
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+
+<dom-module id="kws-activity-content-area">
+    <style></style>
+    <template>
+
+        <!-- For the case that the activity is empty -->
+        <div hidden$="{{!isEmpty(items)}}">{{localize("emptyActivity")}}</div>
+
+        <!-- For the case that the activity is NOT empty -->
+        <template is="dom-repeat" items="[[items]]">
+            <div>[[item]]</div>
+        </template>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "kws-activity-content-area",
+        behaviors: [
+            Polymer.AppLocalizeBehavior
+        ],
+        properties: {
+            items: {
+                type: Array,
+                notify: true
+            },
+            language: String,
+            resources: {
+                type: Object,
+                value: function() {
+                    return {
+                        "de": {
+                            "emptyActivity": "Diese Aktivität ist leer."
+                        },
+                        "en" : {
+                            "emptyActivity": "This activity is empty."
+                        },
+                        "by": {
+                            "emptyActivity": "De Aktivität is laar."
+                        }
+                    };
+                }
+            }
+        },
+        isEmpty: function(aItems) {
+            return aItems ? aItems.length === 0 : false;
+        }
+    });
+</script>

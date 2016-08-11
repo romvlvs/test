@@ -1,0 +1,20 @@
+{
+    "en": {
+        "langButtonEN": "english",
+        "langButtonDE": "german",
+        "langButtonBY": "bavarian",
+        "Greeting": "Hi, there!"
+    },
+    "de": {
+        "langButtonEN": "englisch",
+        "langButtonDE": "deutsch",
+        "langButtonBY": "bayrisch",
+        "Greeting": "Hallo!"
+    },
+    "by": {
+        "langButtonEN": "englisch",
+        "langButtonDE": "deitsch",
+        "langButtonBY": "bayrisch",
+        "Greeting": "Grias God!"
+    }
+}

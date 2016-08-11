@@ -1,0 +1,64 @@
+language: node_js
+node_js:
+  - "6"
+sudo: required
+addons:
+  firefox: "46.0.1"
+#  apt:
+#    sources:
+#    - google-chrome
+#    packages:
+#    - google-chrome-stable
+  sauce_connect:
+    username: chengwei
+    access_key: $SAUCE_PASS
+env:
+  global:
+#  - http_proxy=http://proxy.wdf.sap.corp:8080 HTTP_PROXY=http://proxy.wdf.sap.corp:8080
+#    https_proxy=http://proxy.wdf.sap.corp:8080 HTTPS_PROXY=http://proxy.wdf.sap.corp:8080
+#    ftp_proxy=http://proxy.wdf.sap.corp:8080 FTP_PROXY=http://proxy.wdf.sap.corp:8080
+#    no_proxy="*.local,169.254/16,*.sap.corp,*.corp.sap" NO_PROXY="*.local,169.254/16,*.sap.corp,*.corp.sap"
+#  - DEV_ENDPOINT=http://medas-dev.mo.sap.corp:9999
+#  - STABLE_ENDPOINT=http://medas-stable.mo.sap.corp:9999
+#  - XS_USER=medas
+#  - XS_ORG=initial
+#  - XS_SPACE=initial
+  - GITHUB_API=https://github.wdf.sap.corp/api/v3
+before_install:
+#- npm config set proxy http://proxy.wdf.sap.corp:8080
+#- npm config set https-proxy http://proxy.wdf.sap.corp:8080
+- npm install -g bower
+- npm install -g web-component-tester
+- export PATH=$PWD/node_modules/.bin:$PATH
+- 'export DISPLAY=:99.0'
+#- tar -xjf /tmp/firefox-latest.tar.bz2 --directory /tmp
+#- export PATH=/tmp/firefox:$PATH
+#- sudo mkdir /usr/local/bin/firefoxhack
+#- sudo wget --directory-prefix=/tmp http://ftp.mozilla.org/pub/firefox/releases/46.0.1/linux-x86_64/en-US/firefox-46.0.1.tar.bz2
+#- sudo tar -xjf /tmp/firefox-46.0.1.tar.bz2 -C /usr/local/bin/firefoxhack --strip-components=1
+#- export PATH="/usr/local/bin/firefoxhack:$PATH"
+#- sh -e /etc/init.d/xvfb start
+#- sleep 3
+install: npm install
+before_script:
+- bower install
+script:
+#- wct --skip-plugin sauce  --skip-selenium-install
+#- xvfb-run wct --skip-plugin sauce --skip-selenium-install
+- wct --skip-plugin local
+- wct -s 'default'
+after_success:
+#- if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]]; then sh .xs2deploy.sh $DEV_ENDPOINT dev; fi
+#- if [[ $TRAVIS_BRANCH =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?(\+[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?$ ]]; then sh .xs2deploy.sh $STABLE_ENDPOINT stable; fi
+before_deploy:
+  gulp
+deploy:
+  edge: true
+  provider: cloudfoundry
+  username: d051046
+  password: $CF_PASS
+  api: https://api.cf.sap.hana.ondemand.com
+  organization: trial
+  space: d051046
+  on:
+    branch: feature/gulp

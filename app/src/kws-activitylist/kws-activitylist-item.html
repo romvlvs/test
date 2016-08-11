@@ -1,0 +1,49 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="kws-activitylist-item">
+
+    <template>
+        <style>
+            :host {
+                --kws-activitylist-item-height: 40px;
+                --kws-activitylist-item-border-color: #000000;
+                --kws-activitylist-item-text-color: #000000;
+                --kws-activitylist-item-margin: 10px;
+                --kws-activitylist-item-padding: 5px;
+            }
+
+            .activity-list-item-title {
+                height: var(--kws-activitylist-item-height);
+                line-height: var(--kws-activitylist-item-height);
+                color: var(--kws-activitylist-item-text-color);
+                border-width: 0;
+                border-bottom-width: 1px;
+                border-style: solid;
+                border-color: var(--kws-activitylist-item-border-color);
+                margin: var(--kws-activitylist-item-margin) 0;
+                padding: var(--kws-activitylist-item-padding);
+                position: relative;
+            }
+            .activity-list-item-title span:last-child {
+                position: absolute;
+                right: 0;
+            }
+        </style>
+
+        <div class="activity-list-item-title">
+            <span>[[item.title]]</span>
+            <span>[[item.time]]</span>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'kws-activitylist-item',
+            properties: {
+                item: {
+                    type: Object,
+                    notify: true
+                }
+            }
+        });
+    </script>
+</dom-module>

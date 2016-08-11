@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../bower_components/web-component-tester/browser.js"></script>
+    <script src="../bower_components/mock-interactions/mock-interactions.js"></script>
+    
+  </head>
+  <body>
+    <script>
+      // Load and run all tests (.html, .js):
+      // ?dom=shadow will test with shadow DOM on suported browsers
+      WCT.loadSuites([
+        'kws-todo_test.html',
+        'kws-todo_test.html?dom=shadow',
+        'kws-activity_test.html',
+        'kws-activity_test.html?dom=shadow',
+        'kws-activitylist_test.html',
+        'kws-activitylist_test.html?dom=shadow'
+      ]);
+    </script>
+
+</body></html>

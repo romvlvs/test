@@ -1,0 +1,76 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="segmented-button">
+    <template>
+        <style>
+            paper-button.selected,
+            paper-icon-button.selected {
+                background-color: #CCCCCC;
+            }
+            paper-button,
+            paper-icon-button {
+                border-radius: 2px;
+            }
+        </style>
+
+        <div hidden$="{{_isWithIcons(items)}}">
+            <template is="dom-repeat" items="[[items]]">
+                <paper-button id=[[item.name]] class$="[[_isSelected(item.name, selected)]]" on-tap="_changeSelection">[[item.title]]</paper-button>
+            </template>
+        </div>
+
+        <div hidden$="{{!_isWithIcons(items)}}">
+            <template is="dom-repeat" items="[[items]]">
+                <paper-icon-button id=[[item.name]] src=[[item.icon]] class$="[[_isSelected(item.name, selected)]]" on-tap="_changeSelection"></paper-icon-button>
+            </template>
+        </div>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'segmented-button',
+            properties: {
+                selected: {
+                    type: String,
+                    reflectToAttribute: true,
+                    notify: true
+                },
+                items: {
+                    type: Array,
+                    value: function() {
+                        return this.items || [];
+                    }
+                },
+                localizationFunc: {
+                    type: String,
+                    notify: true
+                }
+            },
+            _isSelected: function(sName, sSelected) {
+                return sName === sSelected ? "selected" : null;
+            },
+            _changeSelection: function(oEvent) {
+                this.selected = oEvent.srcElement.id;
+            },
+            _hasUndefinedIcon : function(aItems){
+                for(var i=0; i < aItems.length; i++){
+                    if (aItems[i].icon === undefined) {
+                        return true;
+                    }
+                }
+
+                return false;
+            },
+            _isWithIcons: function(aItems) {
+                if (!aItems || aItems.length === 0) {
+                    return false;
+                }
+
+                return !this._hasUndefinedIcon(aItems);
+            }
+        });
+    </script>
+
+</dom-module>

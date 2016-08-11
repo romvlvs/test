@@ -1,0 +1,53 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<!-- routing -->
+<link rel="import" href="../../bower_components/app-route/app-location.html">
+<link rel="import" href="../../bower_components/app-route/app-route.html">
+
+<link rel="import" href="../../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+<link rel="import" href="../segmented-button/segmented-button.html">
+
+<link rel="import" href="../kws-theme.html">
+<link rel="import" href="kws-app-styles.html">
+<link rel="import" href="../kws-activitylist/kws-activitylist.html">
+<link rel="import" href="../kws-activity/kws-activity.html">
+
+
+
+<dom-module id="kws-app">
+
+    <template>
+        <style include="kws-app-styles"></style>
+
+        <app-location route="{{route}}"></app-location>
+        <app-route
+            route="{{route}}"
+            pattern="/:page"
+            data="{{routeData}}"
+            tail="{{subroute}}">
+        </app-route>
+        <app-route
+            route="{{subroute}}"
+            pattern="/:id"
+            data="{{subrouteData}}">
+        </app-route>
+
+        <div>
+            <span>{{localize("Greeting")}}</span>
+            <segmented-button selected="{{language}}" items="[[availableLanguages]]"></segmented-button>
+        </div>
+
+        <!-- PIWIK or SWA. -->
+        <kws-analytics></kws-analytics>
+        <!-- Activity Data -->
+        <kws-activitylist-data items="{{items}}"></kws-activitylist-data>
+        <!-- Pages -->
+        <iron-pages selected="[[page]]" attr-for-selected="name"  selected-attribute="visible">
+            <kws-activitylist name="activities" items="{{items}}" language=[[language]]></kws-activitylist>
+            <kws-activity name="detail" activity-id="[[subrouteData.id]]" activity="[[_getActivityDetails(items, subrouteData.id)]]" language=[[language]]></kws-activity>
+        </iron-pages>
+    </template>
+
+    <script src="kws-app.js"></script>
+
+</dom-module>

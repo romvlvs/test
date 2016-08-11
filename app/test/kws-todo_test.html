@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../src/kws-todo/kws-todo.html">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <script src="../bower_components/mock-interactions/mock-interactions.js"></script>
+
+</head>
+<body>
+
+  <test-fixture id="kws-todo-fixture">
+    <template>
+      <kws-todo></kws-todo>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<kws-todo>', function() {
+      var kwsTodoElement;
+      var testText = 'test todo item';
+
+      setup(function() {
+        kwsTodoElement = fixture('kws-todo-fixture');
+      });
+
+      test('kws-todo is ok', function() {
+        expect(document.querySelector('kws-todo')).to.be.ok;
+      });
+
+      test('lists are empty on init', function() {
+        assert.equal(kwsTodoElement.todos.length, 0);
+        assert.equal(kwsTodoElement.doneTodos.length, 0);
+      });
+
+      test('add todo', function(done) {
+        flush(function() {
+          addTestTodo(kwsTodoElement, testText);
+
+          assert.equal(kwsTodoElement.todos.length, 1);
+          assert.equal(kwsTodoElement.todos[0], testText);
+          
+          done();
+        });
+      });
+
+      test('check todo', function(done) {
+        flush(function() {
+          addTestTodo(kwsTodoElement, testText);
+          toggleCheck(kwsTodoElement);
+
+          assert.equal(kwsTodoElement.doneTodos.length, 1);
+          assert.equal(kwsTodoElement.doneTodos[0], testText);
+          assert.equal(kwsTodoElement.todos.length, 0);
+
+          done();
+        });
+      });
+
+      test('uncheck todo', function(done) {
+        flush(function() {
+          addTestTodo(kwsTodoElement, testText);
+          toggleCheck(kwsTodoElement);
+          toggleCheck(kwsTodoElement);
+
+          assert.equal(kwsTodoElement.todos.length, 1);
+          assert.equal(kwsTodoElement.todos[0], testText);
+          assert.equal(kwsTodoElement.doneTodos.length, 0);
+
+          done();
+        });
+      });
+
+
+    });
+
+    function addTestTodo(element, testText) {
+      var addItemInput = element.$$('.addItem paper-input');
+      addItemInput.value = testText;
+      addItemInput.dispatchEvent(new Event('change')); 
+      element.$$('#checkboxList').render(); //TODO: somehow get this to render
+    }
+
+    function toggleCheck(element) {
+      var checkbox = element.$$('.todo-checkbox');
+      checkbox.checked = !checkbox.checked;
+      checkbox.dispatchEvent(new Event('change')); 
+      element.$$('#checkboxList').render();
+    }
+
+  </script>
+
+</body>
+</html>

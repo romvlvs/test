@@ -1,0 +1,57 @@
+export SAUCE_USERNAME=chengwei
+export SAUCE_ACCESS_KEY=c40582b9-8b65-42a2-be8c-3205e21e1823
+
+
+addons:
+  sauce_connect:
+    username: $SAUCE_USER
+    access_key: $SAUCE_PASS
+env:
+  global:
+    - http_proxy=$PROXY:8080
+
+and the log of travis:    
+
+
+Extracting Sauce Connect
+Waiting for Sauce Connect readyfile
+10 Aug 12:30:26 - Sauce Connect 4.3.13, build 1877 d9e5947
+10 Aug 12:30:26 - Using CA certificate bundle /etc/ssl/certs/ca-certificates.crt.
+10 Aug 12:30:26 - Using CA certificate verify path /etc/ssl/certs.
+10 Aug 12:30:26 - Detected proxy proxy.wdf.sap.corp:8080.
+10 Aug 12:30:26 - Starting up; pid 1942
+10 Aug 12:30:26 - Command line arguments: sc-4.3.13-linux//bin/sc -i 48.1 -f sauce-connect-ready-920 -l /home/travis/sauce-connect.log
+10 Aug 12:30:26 - Using proxy proxy.wdf.sap.corp:8080 for connecting to Sauce Labs REST API.
+10 Aug 12:30:27 - ***********************************************************
+10 Aug 12:30:27 - A newer version of Sauce Connect (build 2396) is available!
+10 Aug 12:30:27 - Download it here:
+10 Aug 12:30:27 - https://saucelabs.com/downloads/sc-4.3.16-linux.tar.gz
+10 Aug 12:30:27 - ***********************************************************
+10 Aug 12:30:27 - Started scproxy on port 34257.
+10 Aug 12:30:27 - Please wait for 'you may start your tests' to start your tests.
+10 Aug 12:30:27 - Starting secure remote tunnel VM...
+10 Aug 12:30:34 - Secure remote tunnel VM provisioned.
+10 Aug 12:30:34 - Tunnel ID: 3fb6745b16ef44b48e3c62a66e20ca6d
+10 Aug 12:30:35 - Secure remote tunnel VM is now: booting
+10 Aug 12:30:49 - Secure remote tunnel VM is now: running
+10 Aug 12:30:49 - Using no proxy for connecting to tunnel VM.
+10 Aug 12:30:54 - Resolving tunnel hostname to 162.222.78.64 took 5211ms.
+10 Aug 12:30:54 - Starting Selenium listener...
+10 Aug 12:30:54 - Establishing secure TLS connection to tunnel...
+10 Aug 12:30:54 - Selenium listener started on port 4445.
+10 Aug 12:32:05 - Cleaning up.
+10 Aug 12:32:05 - Removing tunnel 3fb6745b16ef44b48e3c62a66e20ca6d.
+10 Aug 12:32:09 - All jobs using tunnel have finished.
+10 Aug 12:32:09 - Waiting for the connection to terminate...
+10 Aug 12:32:10 - Connection closed (8).
+10 Aug 12:32:10 - Error establishing connection.
+10 Aug 12:32:10 - Proxy was specified, however no --proxy-tunnel command line option was supplied.
+10 Aug 12:32:10 - Retrying with proxy proxy.wdf.sap.corp:8080.
+10 Aug 12:32:10 - Starting Selenium listener...
+10 Aug 12:32:10 - Establishing secure TLS connection to tunnel...
+10 Aug 12:33:15 - An error occurred.
+10 Aug 12:33:15 - Please check logfile for more information.
+10 Aug 12:33:18 - Sauce Connect could not establish a connection.
+10 Aug 12:33:18 - Please check your firewall and proxy settings.
+10 Aug 12:33:18 - You can also use sc --doctor to launch Sauce Connect in diagnostic mode.
+10 Aug 12:33:18 - Goodbye.

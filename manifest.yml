@@ -1,0 +1,8 @@
+---
+
+applications:
+
+- name: polymer
+  memory: 512M
+  instances: 1
+#  timeout: 180

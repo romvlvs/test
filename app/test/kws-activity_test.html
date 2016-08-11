@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../src/kws-activity/kws-activity.html">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../bower_components/web-component-tester/browser.js"></script>
+  <script src="../bower_components/mock-interactions/mock-interactions.js"></script>
+
+</head>
+<body>
+
+  <test-fixture id="kws-activity-fixture">
+    <template>
+      <kws-activity></kws-activity>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('<kws-activity>', function() {
+      var kwsActivityElement;
+
+      setup(function() {
+        kwsActivityElement = fixture('kws-activity-fixture');
+      });
+
+      test('kws-activity is ok', function() {
+        expect(document.querySelector('kws-activity')).to.be.ok;
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,623 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="kws-activitylist-data">
+
+    <script>
+        (function() {
+            var aActivityList = [
+                {
+                    id: "1",
+                    title: "Activity 1",
+                    content: "",
+                    time: (new Date("08.01.2016 00:00")).toJSON()
+                },
+                {
+                    id: "2",
+                    title: "Activity 2",
+                    content: "",
+                    time: (new Date("08.02.2016 01:30")).toJSON()
+                },
+                {
+                    id: "3",
+                    title: "Activity 3",
+                    content: "",
+                    time: (new Date("08.03.2016 12:20")).toJSON()
+                },
+                {
+                    id: "4",
+                    title: "Activity 4",
+                    content: "",
+                    time: (new Date("08.04.2016 13:39")).toJSON()
+                },
+                {
+                    id: "5",
+                    title: "Activity 5",
+                    content: "",
+                    time: (new Date("08.05.2016 10:10")).toJSON()
+                },
+                {
+                    id: "6",
+                    title: "Activity 6",
+                    content: "",
+                    time: (new Date("08.05.2016 04:00")).toJSON()
+                },
+                {
+                    id: "7",
+                    title: "Activity 7",
+                    content: "",
+                    time: (new Date("08.06.2016 22:55")).toJSON()
+                },
+                {
+                    id: "8",
+                    title: "Activity 8",
+                    content: "",
+                    time: (new Date("08.07.2016 03:30")).toJSON()
+                },
+                {
+                    id: "9",
+                    title: "Activity 9",
+                    content: "",
+                    time: (new Date("08.08.2016 14:40")).toJSON()
+                },
+                {
+                    id: "10",
+                    title: "Activity 10",
+                    content: "",
+                    time: (new Date("08.09.2016 18:20")).toJSON()
+                },
+                {
+                    id: "11",
+                    title: "Activity 11",
+                    content: "",
+                    time: (new Date("08.10.2016 17:00")).toJSON()
+                },
+                {
+                    id: "12",
+                    title: "Activity 12",
+                    content: "",
+                    time: (new Date("08.10.2016 21:50")).toJSON()
+                },
+                {
+                    id: "13",
+                    title: "Activity 13",
+                    content: "",
+                    time: (new Date("08.11.2016 23:00")).toJSON()
+                },
+                {
+                    id: "14",
+                    title: "Activity 14",
+                    content: "",
+                    time: (new Date("08.12.2016 02:10")).toJSON()
+                },
+                {
+                    id: "15",
+                    title: "Activity 15",
+                    content: "",
+                    time: (new Date("08.13.2016 15:45")).toJSON()
+                },
+                {
+                    id: "16",
+                    title: "Activity 16",
+                    content: "",
+                    time: (new Date("08.14.2016 18:50")).toJSON()
+                },
+                {
+                    id: "17",
+                    title: "Activity 17",
+                    content: "",
+                    time: (new Date("10.01.2016 22:15")).toJSON()
+                },
+                {
+                    id: "18",
+                    title: "Activity 18",
+                    content: "",
+                    time: (new Date("08.16.2016 01:25")).toJSON()
+                },
+                {
+                    id: "19",
+                    title: "Activity 19",
+                    content: "",
+                    time: (new Date("08.18.2016 06:35")).toJSON()
+                },
+                {
+                    id: "20",
+                    title: "Activity 20",
+                    content: "",
+                    time: (new Date("08.17.2016 07:45")).toJSON()
+                },
+                {
+                    id: "21",
+                    title: "Activity 21",
+                    content: "",
+                    time: (new Date("08.20.2016 13:55")).toJSON()
+                },
+                {
+                    id: "22",
+                    title: "Activity 22",
+                    content: "",
+                    time: (new Date("08.21.2016 19:10")).toJSON()
+                },
+                {
+                    id: "23",
+                    title: "Activity 23",
+                    content: "",
+                    time: (new Date("08.22.2016 20:55")).toJSON()
+                },
+                {
+                    id: "24",
+                    title: "Activity 24",
+                    content: "",
+                    time: (new Date("08.23.2016 03:45")).toJSON()
+                },
+                {
+                    id: "25",
+                    title: "Activity 25",
+                    content: "",
+                    time: (new Date("08.24.2016 04:40")).toJSON()
+                },
+                {
+                    id: "26",
+                    title: "Activity 26",
+                    content: "",
+                    time: (new Date("08.25.2016 21:20")).toJSON()
+                },
+                {
+                    id: "27",
+                    title: "Activity 27",
+                    content: "",
+                    time: (new Date("08.26.2016 21:10")).toJSON()
+                },
+                {
+                    id: "28",
+                    title: "Activity 28",
+                    content: "",
+                    time: (new Date("08.27.2016 22:15")).toJSON()
+                },
+                {
+                    id: "29",
+                    title: "Activity 29",
+                    content: "",
+                    time: (new Date("08.28.2016 23:15")).toJSON()
+                },
+                {
+                    id: "30",
+                    title: "Activity 30",
+                    content: "",
+                    time: (new Date("08.29.2016 19:35")).toJSON()
+                },
+                {
+                    id: "31",
+                    title: "Activity 31",
+                    content: "",
+                    time: (new Date("08.30.2016 10:00")).toJSON()
+                },
+                {
+                    id: "32",
+                    title: "Activity 32",
+                    content: "",
+                    time: (new Date("08.31.2016 09:35")).toJSON()
+                },
+                {
+                    id: "33",
+                    title: "Activity 33",
+                    content: "",
+                    time: (new Date("08.30.2016 08:30")).toJSON()
+                },
+                {
+                    id: "34",
+                    title: "Activity 34",
+                    content: "",
+                    time: (new Date("08.29.2016 00:00")).toJSON()
+                },
+                {
+                    id: "35",
+                    title: "Activity 35",
+                    content: "",
+                    time: (new Date("08.28.2016 00:45")).toJSON()
+                },
+                {
+                    id: "36",
+                    title: "Activity 36",
+                    content: "",
+                    time: (new Date("08.27.2016 01:45")).toJSON()
+                },
+                {
+                    id: "37",
+                    title: "Activity 37",
+                    content: "",
+                    time: (new Date("08.26.2016 05:55")).toJSON()
+                },
+                {
+                    id: "38",
+                    title: "Activity 38",
+                    content: "",
+                    time: (new Date("08.25.2016 05:45")).toJSON()
+                },
+                {
+                    id: "39",
+                    title: "Activity 39",
+                    content: "",
+                    time: (new Date("09.24.2016 09:40")).toJSON()
+                },
+                {
+                    id: "40",
+                    title: "Activity 40",
+                    content: "",
+                    time: (new Date("10.23.2016 11:30")).toJSON()
+                },
+                {
+                    id: "41",
+                    title: "Activity 41",
+                    content: "",
+                    time: (new Date("09.22.2016 12:45")).toJSON()
+                },
+                {
+                    id: "42",
+                    title: "Activity 42",
+                    content: "",
+                    time: (new Date("10.21.2016 15:40")).toJSON()
+                },
+                {
+                    id: "43",
+                    title: "Activity 43",
+                    content: "",
+                    time: (new Date("09.20.2016 17:50")).toJSON()
+                },
+                {
+                    id: "44",
+                    title: "Activity 44",
+                    content: "",
+                    time: (new Date("10.19.2016 19:05")).toJSON()
+                },
+                {
+                    id: "45",
+                    title: "Activity 45",
+                    content: "",
+                    time: (new Date("09.18.2016 23:45")).toJSON()
+                },
+                {
+                    id: "46",
+                    title: "Activity 46",
+                    content: "",
+                    time: (new Date("09.17.2016 23:55")).toJSON()
+                },
+                {
+                    id: "47",
+                    title: "Activity 47",
+                    content: "",
+                    time: (new Date("10.16.2016 20:05")).toJSON()
+                },
+                {
+                    id: "48",
+                    title: "Activity 48",
+                    content: "",
+                    time: (new Date("09.15.2016 20:15")).toJSON()
+                },
+                {
+                    id: "49",
+                    title: "Activity 49",
+                    content: "",
+                    time: (new Date("10.14.2016 05:05")).toJSON()
+                },
+                {
+                    id: "50",
+                    title: "Activity 50",
+                    content: "",
+                    time: (new Date("09.13.2016 03:05")).toJSON()
+                },
+                {
+                    id: "51",
+                    title: "Activity 51",
+                    content: "",
+                    time: (new Date("10.12.2016 02:05")).toJSON()
+                },
+                {
+                    id: "52",
+                    title: "Activity 52",
+                    content: "",
+                    time: (new Date("09.11.2016 01:05")).toJSON()
+                },
+                {
+                    id: "53",
+                    title: "Activity 53",
+                    content: "",
+                    time: (new Date("10.10.2016 04:55")).toJSON()
+                },
+                {
+                    id: "54",
+                    title: "Activity 54",
+                    content: "",
+                    time: (new Date("10.09.2016 06:50")).toJSON()
+                },
+                {
+                    id: "55",
+                    title: "Activity 55",
+                    content: "",
+                    time: (new Date("09.08.2016 07:15")).toJSON()
+                },
+                {
+                    id: "56",
+                    title: "Activity 56",
+                    content: "",
+                    time: (new Date("09.07.2016 07:25")).toJSON()
+                },
+                {
+                    id: "57",
+                    title: "Activity 57",
+                    content: "",
+                    time: (new Date("10.06.2016 07:50")).toJSON()
+                },
+                {
+                    id: "58",
+                    title: "Activity 58",
+                    content: "",
+                    time: (new Date("09.05.2016 08:20")).toJSON()
+                },
+                {
+                    id: "59",
+                    title: "Activity 59",
+                    content: "",
+                    time: (new Date("09.04.2016 08:50")).toJSON()
+                },
+                {
+                    id: "60",
+                    title: "Activity 60",
+                    content: "",
+                    time: (new Date("10.03.2016 10:00")).toJSON()
+                },
+                {
+                    id: "61",
+                    title: "Activity 61",
+                    content: "",
+                    time: (new Date("08.02.2016 11:50")).toJSON()
+                },
+                {
+                    id: "62",
+                    title: "Activity 62",
+                    content: "",
+                    time: (new Date("10.01.2016 12:00")).toJSON()
+                },
+                {
+                    id: "63",
+                    title: "Activity 63",
+                    content: "",
+                    time: (new Date("09.01.2016 12:25")).toJSON()
+                },
+                {
+                    id: "64",
+                    title: "Activity 64",
+                    content: "",
+                    time: (new Date("08.09.2016 12:30")).toJSON()
+                },
+                {
+                    id: "65",
+                    title: "Activity 65",
+                    content: "",
+                    time: (new Date("10.02.2016 13:00")).toJSON()
+                },
+                {
+                    id: "66",
+                    title: "Activity 66",
+                    content: "",
+                    time: (new Date("09.03.2016 13:45")).toJSON()
+                },
+                {
+                    id: "67",
+                    title: "Activity 67",
+                    content: "",
+                    time: (new Date("10.04.2016 14:00")).toJSON()
+                },
+                {
+                    id: "68",
+                    title: "Activity 68",
+                    content: "",
+                    time: (new Date("08.05.2016 15:00")).toJSON()
+                },
+                {
+                    id: "69",
+                    title: "Activity 69",
+                    content: "",
+                    time: (new Date("10.06.2016 16:00")).toJSON()
+                },
+                {
+                    id: "70",
+                    title: "Activity 70",
+                    content: "",
+                    time: (new Date("09.07.2016 16:30")).toJSON()
+                },
+                {
+                    id: "71",
+                    title: "Activity 71",
+                    content: "",
+                    time: (new Date("10.08.2016 00:05")).toJSON()
+                },
+                {
+                    id: "72",
+                    title: "Activity 72",
+                    content: "",
+                    time: (new Date("08.09.2016 17:05")).toJSON()
+                },
+                {
+                    id: "73",
+                    title: "Activity 73",
+                    content: "",
+                    time: (new Date("10.10.2016 17:15")).toJSON()
+                },
+                {
+                    id: "74",
+                    title: "Activity 74",
+                    content: "",
+                    time: (new Date("09.11.2016 17:45")).toJSON()
+                },
+                {
+                    id: "75",
+                    title: "Activity 75",
+                    content: "",
+                    time: (new Date("09.12.2016 18:30")).toJSON()
+                },
+                {
+                    id: "76",
+                    title: "Activity 76",
+                    content: "",
+                    time: (new Date("08.13.2016 19:15")).toJSON()
+                },
+                {
+                    id: "77",
+                    title: "Activity 77",
+                    content: "",
+                    time: (new Date("09.14.2016 21:00")).toJSON()
+                },
+                {
+                    id: "78",
+                    title: "Activity 78",
+                    content: "",
+                    time: (new Date("09.15.2016 22:00")).toJSON()
+                },
+                {
+                    id: "79",
+                    title: "Activity 79",
+                    content: "",
+                    time: (new Date("10.16.2016 22:40")).toJSON()
+                },
+                {
+                    id: "80",
+                    title: "Activity 80",
+                    content: "",
+                    time: (new Date("09.17.2016 23:00")).toJSON()
+                },
+                {
+                    id: "81",
+                    title: "Activity 81",
+                    content: "",
+                    time: (new Date("09.18.2016 23:05")).toJSON()
+                },
+                {
+                    id: "82",
+                    title: "Activity 82",
+                    content: "",
+                    time: (new Date("09.19.2016 23:30")).toJSON()
+                },
+                {
+                    id: "83",
+                    title: "Activity 83",
+                    content: "",
+                    time: (new Date("10.20.2016 06:30")).toJSON()
+                },
+                {
+                    id: "84",
+                    title: "Activity 84",
+                    content: "",
+                    time: (new Date("09.21.2016 06:45")).toJSON()
+                },
+                {
+                    id: "85",
+                    title: "Activity 85",
+                    content: "",
+                    time: (new Date("08.22.2016 10:55")).toJSON()
+                },
+                {
+                    id: "86",
+                    title: "Activity 86",
+                    content: "",
+                    time: (new Date("09.23.2016 22:20")).toJSON()
+                },
+                {
+                    id: "87",
+                    title: "Activity 87",
+                    content: "",
+                    time: (new Date("10.24.2016 19:20")).toJSON()
+                },
+                {
+                    id: "88",
+                    title: "Activity 88",
+                    content: "",
+                    time: (new Date("09.25.2016 20:10")).toJSON()
+                },
+                {
+                    id: "89",
+                    title: "Activity 89",
+                    content: "",
+                    time: (new Date("08.26.2016 20:50")).toJSON()
+                },
+                {
+                    id: "90",
+                    title: "Activity 90",
+                    content: "",
+                    time: (new Date("09.27.2016 16:45")).toJSON()
+                },
+                {
+                    id: "91",
+                    title: "Activity 91",
+                    content: "",
+                    time: (new Date("09.28.2016 15:25")).toJSON()
+                },
+                {
+                    id: "92",
+                    title: "Activity 92",
+                    content: "",
+                    time: (new Date("08.29.2016 14:45")).toJSON()
+                },
+                {
+                    id: "93",
+                    title: "Activity 93",
+                    content: "",
+                    time: (new Date("08.30.2016 13:05")).toJSON()
+                },
+                {
+                    id: "94",
+                    title: "Activity 94",
+                    content: "",
+                    time: (new Date("09.30.2016 17:40")).toJSON()
+                },
+                {
+                    id: "95",
+                    title: "Activity 95",
+                    content: "",
+                    time: (new Date("09.29.2016 12:10")).toJSON()
+                },
+                {
+                    id: "96",
+                    title: "Activity 96",
+                    content: "",
+                    time: (new Date("08.31.2016 18:55")).toJSON()
+                },
+                {
+                    id: "97",
+                    title: "Activity 97",
+                    content: "",
+                    time: (new Date("09.28.2016 14:55")).toJSON()
+                },
+                {
+                    id: "98",
+                    title: "Activity 98",
+                    content: "",
+                    time: (new Date("09.27.2016 15:30")).toJSON()
+                },
+                {
+                    id: "99",
+                    title: "Activity 99",
+                    content: "",
+                    time: (new Date("08.26.2016 22:10")).toJSON()
+                },
+                {
+                    id: "100",
+                    title: "Activity 100",
+                    content: "",
+                    time: (new Date("09.25.2016 13:35")).toJSON()
+                }
+            ];
+
+            Polymer({
+                is: 'kws-activitylist-data',
+                properties: {
+                    items: {
+                        notify: true,
+                        type: "Array",
+                        value: function() {
+                          return aActivityList || [];
+                        }
+                    }
+                },
+            });
+        })();
+    </script>
+</dom-module>

@@ -1,0 +1,113 @@
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-collapse-item/paper-collapse-item.html">
+<link href="../../bower_components/polymer/polymer.html" rel="import">
+
+<dom-module id="kws-todo">
+    <style is="custom-style">
+        :host ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        :host ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        paper-collapse-item{
+            margin-top: 20px;
+            display: block;
+        }
+
+        paper-checkbox[checked] + paper-input{
+            --paper-font-subhead:{
+                text-decoration: line-through;
+            }
+        }
+
+        :host li.addItem{
+            background-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE4cHgiIHdpZHRoPSIxOHB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0iIzAwMDAwMCI+CiA8cGF0aCBkPSJtMzggMjZoLTEydjEyaC00di0xMmgtMTJ2LTRoMTJ2LTEyaDR2MTJoMTJ2NHoiLz4KIDxwYXRoIGQ9Im0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPgo8L3N2Zz4K);
+            background-position: 0px 11px;
+            background-repeat: no-repeat;
+        }
+
+
+        paper-checkbox{
+            padding: 8px 0;
+        }
+
+        :host ul li{
+            height: 34px;
+            position: relative;
+        }
+
+        :host ul li paper-input{
+            position: absolute;
+            left: 30px;
+            top: 0;
+            height: 30px;
+        }
+
+        :host template {
+            padding: 100px;
+        }
+    </style>
+    <template>
+        <h1>
+            Todos
+        </h1>
+        <ul>
+            <template id="checkboxList" is="dom-repeat" items="{{todos}}" observe="isComplete">
+                <li>
+                    <paper-checkbox class="todo-checkbox" on-change="moveToDone"></paper-checkbox>
+                    <paper-input class="todo-input" label="" value="[[item]]" no-label-float></paper-input>
+                </li>
+            </template>
+            <li class="addItem">
+                <paper-input label="Add todo" value="{{val}}" on-change="handleChange" no-label-float></paper-input>
+            </li>
+        </ul>
+
+        <paper-collapse-item icon="icons:done-all" header="[[doneTodos.length]] checked items">
+              <ul class="doneTodoList">
+                <template id="checkboxList" is="dom-repeat" items="{{doneTodos}}" observe="isComplete">
+                    <li>
+                        <paper-checkbox class="todo-checkbox" checked on-change="moveToTodo"></paper-checkbox>
+                        <paper-input class="todo-input" label="" value="[[item]]" no-label-float></paper-input>
+                    </li>
+                </template>
+            </ul>
+        </paper-collapse-item>
+</template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "kws-todo",
+        properties: {
+            todos: Array,
+            doneTodos: Array
+        },
+        ready: function() {
+            this.todos = [];
+            this.doneTodos = [];
+        },
+        handleChange: function(a) {
+            this.push('todos', this.val);
+            this.val = "";
+        },
+        moveToDone: function(a) {
+            var inputText = a.model.item;
+            var index = a.model.index;
+            this.splice('todos', index, 1);
+            this.push('doneTodos', inputText);
+        },
+        moveToTodo: function(a) {
+          var inputText = a.model.item;
+          var index = a.model.index;
+          this.splice('doneTodos', index, 1);
+          this.push('todos', inputText);
+        }
+  });
+</script>

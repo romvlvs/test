@@ -1,0 +1,28 @@
+{
+  "name": "kws",
+  "version": "1.0",
+  "authors": [
+    "PES"
+  ],
+  "private": true,
+  "dependencies": {
+    "polymer": "polymer/polymer#^1.6.0",
+    "app-route": "polymerelements/app-route#^0.9.1",
+    "iron-pages": "polymerelements/iron-pages#^1.0.0",
+    "iron-icons": "polymerelements/iron-icons",
+    "iron-icon": "polymerelements/iron-icon",
+    "iron-image": "polymerelements/iron-image",
+    "iron-input": "polymerelements/iron-input",
+    "iron-form": "polymerelements/iron-form",
+    "paper-button": "polymerelements/paper-button",
+    "paper-icon-button": "polymerelements/paper-icon-button",
+    "paper-checkbox": "polymerelements/paper-checkbox",
+    "paper-input": "polymerelements/paper-input",
+    "app-localize-behavior": "polymerelements/app-localize-behavior",
+    "paper-collapse-item": "Collaborne/paper-collapse-item"
+  },
+  "devDependencies": {
+    "web-component-tester": "^4.0.0",
+    "mock-interactions": "PolymerElements/iron-test-helpers"
+  }
+}

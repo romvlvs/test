@@ -1,0 +1,54 @@
+<link rel="import" href="../../bower_components/iron-image/iron-image.html">
+<link rel="import" href="../../bower_components/iron-form/iron-form.html">
+<link rel="import" href="../../bower_components/iron-input/iron-input.html">
+
+<dom-module id="kws-imageuploader">
+    <style is="custom-style">
+        :host iron-image {
+            width:400px;
+            height:400px;
+        }
+    </style>
+    <template>
+        <iron-form enctype="multipart/form-data" on-change="fireFormChange" on-paste="fireFormPaste" on-drop="fireFormDrop">
+            <input type="file" name="files[]" contenteditable="true">
+            <div id='editableDiv' contenteditable='true' on-paste="fireDivPaste">Paste</div></input>
+        </iron-form>
+        <iron-image sizing="contain" src="{{imgSource}}">
+        </iron-image>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "kws-imageuploader",
+        properties: {
+            imgSource: String
+        },
+        fireDivPaste: function(e) {
+            var clipboardData = e.clipboardData || window.clipboardData;
+            e.stopPropagation();
+            e.preventDefault();
+            if (clipboardData.items[0]) {
+                this.insertPicture(clipboardData.items[0].getAsFile());
+            }
+        },
+        fireFormChange: function(oSource) {
+            this.insertPicture(oSource.srcElement.files[0]);
+        },
+        fireFormDrop: function(oSource) {
+            oSource.preventDefault();
+            oSource.stopPropagation();
+            this.insertPicture(oSource.dataTransfer.files[0]);
+        },
+        insertPicture: function(oFile) {
+            var oFileReader = new FileReader();
+            oFileReader.addEventListener("load", function () {
+                this.imgSource = oFileReader.result;
+            }.bind(this), false);
+            oFileReader.readAsDataURL(oFile);
+        },
+        ready: function() {
+        }
+    });
+</script>

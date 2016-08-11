@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/app-localize-behavior/app-localize-behavior.html">
+
+<link rel="import" href="kws-activitylist-data.html">
+<link rel="import" href="kws-activitylist-item.html">
+
+<dom-module id="kws-activitylist">
+
+    <template>
+        <style>
+        </style>
+
+        <h1>{{localize("ActivityListTitle")}}</h1>
+
+        <div class="grid">
+            <template is="dom-repeat" items="[[items]]" sort="sortActivities">
+                <a href$="[[_getItemHref(item)]]">
+                    <kws-activitylist-item item="[[item]]"></kws-activitylist-item>
+                </a>
+            </template>
+        </div>
+    </template>
+
+  <script>
+    Polymer({
+        is: 'kws-activitylist',
+        behaviors: [
+            Polymer.AppLocalizeBehavior
+        ],
+        properties: {
+            items: {
+                type: Array
+            },
+            language: String
+        },
+        attached: function() {
+            this.loadResources(this.resolveUrl('locales.json'));
+        },
+        sortActivities: function(item1, item2) {
+            var time1 = new Date(item1.time);
+            var time2 = new Date(item2.time);
+            return time1 - time2;
+        },
+        _getItemHref: function(item) {
+            // By returning null when `itemId` is undefined, the href attribute won't be set and the link will be disabled.
+            return item && item.id ? ['/activities', item.id].join('/') : null;
+        }
+    });
+
+  </script>
+</dom-module>

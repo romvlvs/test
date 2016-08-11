@@ -1,0 +1,9 @@
+{
+  "name": "KWS",
+  "short_name": "KWS",
+  "icons": [],
+  "start_url": "/",
+  "background_color": "#fff",
+  "display": "standalone",
+  "theme_color": "#fff"
+}

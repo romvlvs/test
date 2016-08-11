@@ -1,0 +1,19 @@
+<dom-module id="kws-app-styles">
+    <template>
+        <style>
+            :host {
+                display: block;
+                position: relative;
+                padding: 30px 20px 64px;
+                min-height: 100vh;
+                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                color: var(--app-primary-color);
+            }
+
+            :host(:not([page=activity])) .back-btn {
+                display: none;
+            }
+
+        </style>
+    </template>
+</dom-module>

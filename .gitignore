@@ -1,0 +1,12 @@
+node_modules
+dist
+bower_components
+.tmp
+.publish/
+
+.idea
+*.iml
+server.csr
+*.log
+*.LOG
+sc-4.3.16-win32

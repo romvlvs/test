@@ -1,0 +1,28 @@
+{
+  "suites": ["app/test"],
+  "webserver": {
+    "pathMappings": []
+  },
+  "plugins": {
+    "sauce": {
+      "browsers": [{
+        "browserName": "Chrome",
+        "platform": "Windows 10",
+        "version": "52"
+      }, {
+        "browserName": "internet explorer",
+        "platform": "Windows 10",
+        "version": "11"
+      },
+        {
+          "browserName": "firefox",
+          "platform": "Windows 10",
+          "version": "47"
+        }
+      ]
+    },
+    "local": {
+      "browsers": ["firefox"]
+    }
+  }
+}

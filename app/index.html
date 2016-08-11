@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+        <title>Knowledge Workspace</title>
+
+        <meta name="theme-color" content="#fff">
+        <link rel="manifest" href="/manifest.json">
+
+        <link rel="import" href="/src/kws-app/kws-app.html" async>
+    </head>
+
+    <body>
+        <kws-app></kws-app>
+        <script>
+            window.Polymer = {lazyRegister: true, dom: 'shadow'};
+
+            (function() {
+                if ('registerElement' in document
+                    && 'import' in document.createElement('link')
+                    && 'content' in document.createElement('template')) {
+                  // platform is good!
+                } else {
+                    // polyfill the platform!
+                    var e = document.createElement('script');
+                    e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+                    document.body.appendChild(e);
+                }
+            })();
+
+            // load pre-caching service worker
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
+    </body>
+
+</html>
