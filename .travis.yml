@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - "6"
 sudo: required
+notifications:
+  email:
+    recipients:
+      - wei.cheng@sap.com
 addons:
 #  firefox: "46.0.1"
 #  apt:
